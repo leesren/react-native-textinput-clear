@@ -52,10 +52,11 @@ If `react-native run-ios` command ends up with error, compile with Xcode.
 
 ### react 0.54.0
 
-
+![ScreenShot_0.54.0](https://raw.githubusercontent.com/magicien/react-native-textinput-clear/master/screenshot/0.54.0_test.gif)
 
 ### with Bugfix
 
+![ScreenShot_Bugfix](https://raw.githubusercontent.com/magicien/react-native-textinput-clear/master/screenshot/patch_test.gif)
 
 
 ## Other behaviors
