@@ -41,20 +41,39 @@ If `react-native run-ios` command ends up with error, compile with Xcode.
 
 ## Test
 
-- Tap `clear` button
+### clear()
+
+1. Tap `clear` button
     - The TextInput should become empty
-- Put some text in the TextInput
-- Tap `clear` button
+2. Put some text in the TextInput
+3. Tap `clear` button
     - The TextInput should become empty
     - **It doesn't become empty with react 0.54.0**
+
+### setNativeProps({text: '****'})
+
+1. Tap `clear` button
+    - The TextInput should become empty
+2. Tap `reset` button
+    - The TextInput should change
+3. Change the text in the TextInput by keyboard
+4. Tap `reset` button
+    - The TextInput should change
+    - **It doesn't change with react 0.54.0**
 
 ## Result
 
 ### react 0.54.0
 
+- `clear()` doen't work from the second time
+- `setNativeProps({text '***'})` doesn't work from the second time
+
 ![ScreenShot_0.54.0](https://raw.githubusercontent.com/magicien/react-native-textinput-clear/master/screenshot/0.54.0_test.gif)
 
 ### with Bugfix
+
+- `clear()` works every time
+- `setNativeProps({text '****'})` works every time
 
 ![ScreenShot_Bugfix](https://raw.githubusercontent.com/magicien/react-native-textinput-clear/master/screenshot/patch_test.gif)
 
