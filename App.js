@@ -11,6 +11,7 @@ import {
   Button,
   Keyboard,
   SafeAreaView,
+  Slider,
   StyleSheet,
   Text,
   TextInput,
@@ -36,6 +37,11 @@ const styles = StyleSheet.create({
   button: {
     minHeight: 44,
   },
+  slider: {
+    width: '100%',
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
   textContainer: {
     width: '100%',
     paddingLeft: 20,
@@ -47,6 +53,16 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     minHeight: 44,
   },
+  attributedText: {
+    width: '100%',
+    borderColor: 'black',
+    borderWidth: 1,
+    minHeight: 44,
+    fontFamily: 'Marker Felt',
+    fontSize: 24,
+    textAlign: 'right',
+    color: 'red',
+  },
 });
 
 type Props = {};
@@ -54,6 +70,7 @@ type Props = {};
 type State = {
   singlelineValue: string,
   multilineValue: string,
+  sliderValue: string,
 };
 
 export default class App extends Component<Props, State> {
@@ -62,6 +79,7 @@ export default class App extends Component<Props, State> {
     this.state = {
       singlelineValue: '',
       multilineValue: '',
+      sliderValue: '0',
     };
   }
 
@@ -97,6 +115,12 @@ export default class App extends Component<Props, State> {
   handleChangeMultiline = (text: string) => {
     this.setState({
       multilineValue: text,
+    });
+  }
+
+  handleSliderChange = (value: number) => {
+    this.setState({
+      sliderValue: Math.floor(value).toString(),
     });
   }
 
@@ -209,6 +233,21 @@ export default class App extends Component<Props, State> {
             onPress={this.setMultilineText({ foo: 'bar' })}
             style={styles.button}
             title="object"
+          />
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.title}>Attribute</Text>
+          <Slider
+            maximumValue={100}
+            minimumValue={0}
+            onValueChange={this.handleSliderChange}
+            style={styles.slider}
+            value={0}
+          />
+          <TextInput
+            editable={false}
+            style={styles.attributedText}
+            value={this.state.sliderValue}
           />
         </View>
       </SafeAreaView>
