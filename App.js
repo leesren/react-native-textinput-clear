@@ -65,6 +65,14 @@ export default class App extends Component<Props, State> {
     };
   }
 
+  setSinglelineText = (text: any) => () => {
+    this.singlelineInput.setNativeProps({ text });
+  }
+
+  setMultilineText = (text: any) => () => {
+    this.multilineInput.setNativeProps({ text });
+  }
+
   singlelineInput: TextInput;
   singlelineDefaultValue: string = 'Romeo, Romeo! wherefore art thou Romeo?';
   multilineInput: TextInput;
@@ -76,12 +84,6 @@ export default class App extends Component<Props, State> {
     this.singlelineInput.clear();
   }
 
-  resetSingleline = () => {
-    this.singlelineInput.setNativeProps({
-      text: this.singlelineDefaultValue,
-    });
-  }
-
   handleChangeSingleline = (text: string) => {
     this.setState({
       singlelineValue: text,
@@ -90,12 +92,6 @@ export default class App extends Component<Props, State> {
 
   clearMultiline = () => {
     this.multilineInput.clear();
-  }
-
-  resetMultiline = () => {
-    this.multilineInput.setNativeProps({
-      text: this.multilineDefaultValue,
-    });
   }
 
   handleChangeMultiline = (text: string) => {
@@ -127,9 +123,37 @@ export default class App extends Component<Props, State> {
             title="clear"
           />
           <Button
-            onPress={this.resetSingleline}
+            onPress={this.setSinglelineText(this.singlelineDefaultValue)}
             style={styles.button}
             title="reset"
+          />
+        </View>
+        <Text>Set other types</Text>
+        <View style={styles.buttonContainer}>
+          <Button
+            onPress={this.setSinglelineText(123)}
+            style={styles.button}
+            title="number"
+          />
+          <Button
+            onPress={this.setSinglelineText(null)}
+            style={styles.button}
+            title="null"
+          />
+          <Button
+            onPress={this.setSinglelineText(undefined)}
+            style={styles.button}
+            title="undefined"
+          />
+          <Button
+            onPress={this.setSinglelineText(() => {})}
+            style={styles.button}
+            title="func"
+          />
+          <Button
+            onPress={this.setSinglelineText({ foo: 'bar' })}
+            style={styles.button}
+            title="object"
           />
         </View>
         <View style={styles.textContainer}>
@@ -154,9 +178,37 @@ export default class App extends Component<Props, State> {
             title="clear"
           />
           <Button
-            onPress={this.resetMultiline}
+            onPress={this.setMultilineText(this.multilineDefaultValue)}
             style={styles.button}
             title="reset"
+          />
+        </View>
+        <Text>Set other types</Text>
+        <View style={styles.buttonContainer}>
+          <Button
+            onPress={this.setMultilineText(123)}
+            style={styles.button}
+            title="number"
+          />
+          <Button
+            onPress={this.setMultilineText(null)}
+            style={styles.button}
+            title="null"
+          />
+          <Button
+            onPress={this.setMultilineText(undefined)}
+            style={styles.button}
+            title="undefined"
+          />
+          <Button
+            onPress={this.setMultilineText(() => {})}
+            style={styles.button}
+            title="func"
+          />
+          <Button
+            onPress={this.setMultilineText({ foo: 'bar' })}
+            style={styles.button}
+            title="object"
           />
         </View>
       </SafeAreaView>
