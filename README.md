@@ -60,6 +60,12 @@ If `react-native run-ios` command ends up with error, compile with Xcode.
 4. Tap `reset` button
     - The TextInput should change
     - **It doesn't change with react 0.54.0**
+    
+### attributed text (Thank you @reyalpsirc!)
+
+1. Move the slider
+
+It should keep the font style (font family, size, color, text align)
 
 ## Result
 
@@ -77,6 +83,9 @@ If `react-native run-ios` command ends up with error, compile with Xcode.
 
 ![ScreenShot_Bugfix](https://raw.githubusercontent.com/magicien/react-native-textinput-clear/master/screenshot/patch_test.gif)
 
+### Attributed text test with Bugfix
+
+![ScreenShot_Slider](https://raw.githubusercontent.com/magicien/react-native-textinput-clear/master/screenshot/attributed_text_test.gif)
 
 ## Other behaviors
 
