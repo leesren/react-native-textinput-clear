@@ -70,7 +70,6 @@ type Props = {};
 type State = {
   singlelineValue: string,
   multilineValue: string,
-  sliderValue: string,
 };
 
 export default class App extends Component<Props, State> {
@@ -79,7 +78,6 @@ export default class App extends Component<Props, State> {
     this.state = {
       singlelineValue: '',
       multilineValue: '',
-      sliderValue: '0',
     };
   }
 
@@ -97,6 +95,7 @@ export default class App extends Component<Props, State> {
   multilineDefaultValue: string = 'What\'s in a name? '
     + 'that which we call a rose. '
     + 'By any other name would smell as sweet.';
+  attributedInput: TextInput;
 
   clearSingleline = () => {
     this.singlelineInput.clear();
@@ -119,9 +118,8 @@ export default class App extends Component<Props, State> {
   }
 
   handleSliderChange = (value: number) => {
-    this.setState({
-      sliderValue: Math.floor(value).toString(),
-    });
+    const text = Math.floor(value).toString();
+    this.attributedInput.setNativeProps({ text });
   }
 
   render() {
@@ -245,9 +243,12 @@ export default class App extends Component<Props, State> {
             value={0}
           />
           <TextInput
+            defaultValue="0"
             editable={false}
+            ref={(input) => {
+              this.attributedInput = input;
+            }}
             style={styles.attributedText}
-            value={this.state.sliderValue}
           />
         </View>
       </SafeAreaView>
