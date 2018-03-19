@@ -179,6 +179,10 @@ export default class App extends Component<Props, State> {
           />
         </View>
         <View style={styles.textContainer}>
+          <Text style={styles.title}>Singleline with value</Text>
+          <TextInput value="You can't change this text." style={styles.textInput} />
+        </View>
+        <View style={styles.textContainer}>
           <Text style={styles.title}>Multiline</Text>
           <Text>onChangeText: {this.state.multilineValue}</Text>
           <TextInput
