@@ -7,13 +7,15 @@ react-native 0.54.0 has a bug which textInputRef.setNativeProps({text: ''}) does
 
 You can check if the pull request fixes the bug.
 
-## Issue
+## Issues
 
 [\[0.54\] TextInput.setNativeProps({text: ''}) no longer works (#18272)](https://github.com/facebook/react-native/issues/18272)
 
+[TextInput value not binding on IOS (#18389)](https://github.com/facebook/react-native/issues/18389)
+
 ## Pull Request
 
-[\[WIP\]\[IOS\]\[BUGFIX\]\[TextInput\] Fix #18272 TextInput.setNativeProps({text: ''}) to work (#18278)](https://github.com/facebook/react-native/pull/18278)
+[\[iOS\]\[TextInput\] Fix #18272 TextInput.setNativeProps({text: ''}) to work (#18278)](https://github.com/facebook/react-native/pull/18278)
 
 ## Build and Run
 
@@ -60,10 +62,16 @@ If `react-native run-ios` command ends up with error, compile with Xcode.
 4. Tap `reset` button
     - The TextInput should change
     - **It doesn't change with react 0.54.0**
-    
+
+### `value` prop
+
+1. Try to edit the TextInput at "Singleline with value"
+
+The text should not be changed
+
 ### attributed text (Thank you @reyalpsirc!)
 
-1. Move the slider
+1. Move the slider at "Attribute"
 
 It should keep the font style (font family, size, color, text align)
 
@@ -81,11 +89,21 @@ It should keep the font style (font family, size, color, text align)
 - `clear()` works every time
 - `setNativeProps({text '****'})` works every time
 
-![ScreenShot_Bugfix](https://raw.githubusercontent.com/magicien/react-native-textinput-clear/master/screenshot/patch_test.gif)
+### Singleline
+
+![ScreenShot_Clear_1](https://raw.githubusercontent.com/magicien/react-native-textinput-clear/master/screenshot/clear_test_1.gif)
+
+### Multiline
+
+![ScreenShot_Clear_2](https://raw.githubusercontent.com/magicien/react-native-textinput-clear/master/screenshot/clear_test_2.gif)
 
 ### Attributed text test with Bugfix
 
 ![ScreenShot_Slider](https://raw.githubusercontent.com/magicien/react-native-textinput-clear/master/screenshot/attributed_text_test.gif)
+
+### value prop with Bugfix
+
+![ScreenShot_Value](https://raw.githubusercontent.com/magicien/react-native-textinput-clear/master/screenshot/value_test.gif)
 
 ## Other behaviors
 
