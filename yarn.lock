@@ -4207,7 +4207,7 @@ react-devtools-core@3.1.0:
 
 "react-native@git://github.com/magicien/react-native.git#bugfix/textinput_clear":
   version "1000.0.0"
-  resolved "git://github.com/magicien/react-native.git#1dcb8763c6c263f6673ec8f0cd04be39b3c3e94a"
+  resolved "git://github.com/magicien/react-native.git#a374a6afeec7928e4164a8e1a5ad98064227c169"
   dependencies:
     absolute-path "^0.0.0"
     art "^0.10.0"
